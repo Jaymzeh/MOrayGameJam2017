@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+
     static bool inputEnabled = true;
     public static bool InputEnabled {
         get { return inputEnabled; }
