@@ -10,11 +10,20 @@ public class Tether : MonoBehaviour {
     float distance;
 
     void Start() {
+        link = new List<GameObject>();
         DropLink();
     }
 
     void DropLink() {
         GameObject newLink = Instantiate(linkPrefab, transform.position - (transform.forward * 0.5f), Quaternion.identity);
+
+        if (GameObject.Find(transform.parent.name + "_Tether") == null)
+            new GameObject(transform.parent.name + "_Tether");
+        newLink.transform.parent = GameObject.Find(transform.parent.name + "_Tether").transform;
+
+        if (link.Count < 3)
+            newLink.GetComponent<Rigidbody>().isKinematic = true;
+
         link.Add(newLink);
         UpdateLine();
     }
