@@ -21,9 +21,6 @@ public class Tether : MonoBehaviour {
             new GameObject(transform.parent.name + "_Tether");
         newLink.transform.parent = GameObject.Find(transform.parent.name + "_Tether").transform;
 
-        if (link.Count < 3)
-            newLink.GetComponent<Rigidbody>().isKinematic = true;
-
         link.Add(newLink);
         UpdateLine();
     }
