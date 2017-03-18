@@ -54,7 +54,7 @@ ModelImporter:
     400044: upperleg_L
     400046: upperleg_R
     4300000: body
-    7400000: Default Take
+    7400000: Faceplant Idle
     7400002: Falling
     7400004: ArmatureAction0
     7400006: Idle
@@ -86,8 +86,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Run
       takeName: ArmatureAction
-      firstFrame: 51
-      lastFrame: 82
+      firstFrame: 2
+      lastFrame: 12
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -162,7 +162,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: ArmatureAction
-      firstFrame: -1
+      firstFrame: 51
       lastFrame: 82
       wrapMode: 0
       orientationOffsetY: 0
@@ -316,6 +316,82 @@ ModelImporter:
       takeName: ArmatureAction
       firstFrame: 90
       lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/left_hip
+        weight: 1
+      - path: Armature/root/right_hip
+        weight: 1
+      - path: Armature/root/spine
+        weight: 1
+      - path: Armature/root/spine/ribcage
+        weight: 1
+      - path: Armature/root/spine/ribcage/left_shoulder
+        weight: 1
+      - path: Armature/root/spine/ribcage/neck
+        weight: 1
+      - path: Armature/root/spine/ribcage/neck/head
+        weight: 1
+      - path: Armature/root/spine/ribcage/right_shoulder
+        weight: 1
+      - path: Armature/upperarm_L
+        weight: 1
+      - path: Armature/upperarm_L/lowerarm_L
+        weight: 1
+      - path: Armature/upperarm_L/lowerarm_L/left_hand
+        weight: 1
+      - path: Armature/upperarm_R
+        weight: 1
+      - path: Armature/upperarm_R/lowerarm_R
+        weight: 1
+      - path: Armature/upperarm_R/lowerarm_R/right_hand
+        weight: 1
+      - path: Armature/upperleg_L
+        weight: 1
+      - path: Armature/upperleg_L/lowerleg_L
+        weight: 1
+      - path: Armature/upperleg_L/lowerleg_L/left_foot
+        weight: 1
+      - path: Armature/upperleg_R
+        weight: 1
+      - path: Armature/upperleg_R/lowerleg_R
+        weight: 1
+      - path: Armature/upperleg_R/lowerleg_R/right_foot
+        weight: 1
+      - path: body
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Faceplant Idle
+      takeName: Default Take
+      firstFrame: 24
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

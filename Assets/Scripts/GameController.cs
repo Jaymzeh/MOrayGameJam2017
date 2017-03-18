@@ -5,6 +5,7 @@ public class GameController : MonoBehaviour {
     public static GameController Instance;
 
     public GameObject playerPrefab;
+    public AudioSource sfxSource;
 
     public static int deaths = 0;
 
@@ -16,6 +17,11 @@ public class GameController : MonoBehaviour {
 
     void Awake() {
         Instance = this;
+    }
+
+    public static void PlaySFX(AudioClip clip) {
+        Instance.sfxSource.clip = clip;
+        Instance.sfxSource.Play();
     }
 
     public static void Respawn(Vector3 spawnPoint) {

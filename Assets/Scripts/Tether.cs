@@ -8,6 +8,7 @@ public class Tether : MonoBehaviour {
     public List<GameObject> link;
     public float targetDistance = 4;
     float distance;
+    public bool grounded;
 
     void Start() {
         link = new List<GameObject>();
@@ -26,6 +27,7 @@ public class Tether : MonoBehaviour {
         Collider[] colliders = Physics.OverlapSphere(transform.position, 0.2f);
         for (int i = 0; i < colliders.Length; i++) {
             if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Ground")) {
+                grounded = true;
                 GameObject newLink = Instantiate(linkPrefab, transform.position - (transform.forward * 0.5f), Quaternion.identity);
                 newLink.transform.parent = GameObject.Find(transform.parent.name + "_Tether").transform;
 
