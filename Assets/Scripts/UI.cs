@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using CinemaDirector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UI : MonoBehaviour {
 
-    public GameObject startMenu;
+    public Cutscene startMenu;
     public GameObject endMenu;
     public void StartLevel() {
-        startMenu.SetActive(false);
+        startMenu.Play();
     }
 
     public void ExitGame() {

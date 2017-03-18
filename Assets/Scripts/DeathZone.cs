@@ -7,8 +7,14 @@ public class DeathZone : MonoBehaviour {
     public GameObject spawnPoint;
     public AudioClip deathSound;
 
+    void TrimPath(GameObject player) {
+        Tether path = player.GetComponentInChildren<Tether>();
+        path.link[path.link.Count - 1].GetComponentInChildren<ParticleSystem>().startColor = Color.red;
+    }
+
 	void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player") {
+            TrimPath(other.gameObject);
             GameController.Respawn(spawnPoint.transform.position);
         }
     }

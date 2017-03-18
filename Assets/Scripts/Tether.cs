@@ -11,18 +11,29 @@ public class Tether : MonoBehaviour {
 
     void Start() {
         link = new List<GameObject>();
-        DropLink();
-    }
-
-    void DropLink() {
-        GameObject newLink = Instantiate(linkPrefab, transform.position - (transform.forward * 0.5f), Quaternion.identity);
 
         if (GameObject.Find(transform.parent.name + "_Tether") == null)
             new GameObject(transform.parent.name + "_Tether");
+        GameObject newLink = Instantiate(linkPrefab, transform.position - (transform.forward * 0.5f), Quaternion.identity);
+
+
         newLink.transform.parent = GameObject.Find(transform.parent.name + "_Tether").transform;
 
         link.Add(newLink);
-        UpdateLine();
+    }
+
+    void DropLink() {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.2f);
+        for (int i = 0; i < colliders.Length; i++) {
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Ground")) {
+                GameObject newLink = Instantiate(linkPrefab, transform.position - (transform.forward * 0.5f), Quaternion.identity);
+                newLink.transform.parent = GameObject.Find(transform.parent.name + "_Tether").transform;
+
+                link.Add(newLink);
+                UpdateLine();
+                break;
+            }
+        }
     }
 
     void UpdateLine() {

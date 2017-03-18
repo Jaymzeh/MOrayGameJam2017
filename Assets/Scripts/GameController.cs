@@ -5,6 +5,7 @@ public class GameController : MonoBehaviour {
     public static GameController Instance;
 
     public GameObject playerPrefab;
+
     public static int deaths = 0;
 
     static bool inputEnabled = true;
