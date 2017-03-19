@@ -25,9 +25,6 @@ public class Stalker : MonoBehaviour {
 
         if (GameController.lampOn) {
             chaseTimer += Time.deltaTime;
-            if (chaseTimer >= 10)
-                GameController.lampOn = false;
-            agent.acceleration = 4;
             agent.speed = 12;
             agent.SetDestination(GameObject.FindGameObjectWithTag("Player").transform.position);
         }

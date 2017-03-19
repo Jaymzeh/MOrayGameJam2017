@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour {
     public float turningSpeed = 1f;
     public Transform groundCheck;
     public LayerMask ground;
+    public AudioClip triggerNoise;
     bool grounded;
     Animator anim;
     Rigidbody rBody;
@@ -42,6 +43,10 @@ public class PlayerControl : MonoBehaviour {
 
             if (Input.GetButtonDown("Fire1") && canUseLamp) {
                 lamp.enabled = true;
+                if (GameObject.FindGameObjectWithTag("Stalker")) {
+                    GameController.PlaySFX(triggerNoise);
+                    UI.ShowWarning();
+                }
                 GameController.lampOn = true;
                 canUseLamp = false;
             }
