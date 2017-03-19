@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
     public AudioSource sfxSource;
     public static bool lampOn;
 
-    public static int deaths = 0;
+    public static int deaths = -1;
 
     static bool inputEnabled = true;
     public static bool InputEnabled {
@@ -29,12 +29,17 @@ public class GameController : MonoBehaviour {
     }
 
     public static void Respawn() {
-        deaths++;
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        
+        if (PlayerControl.Instance != null) {
+            deaths++;
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            Instance.TrimPath();
+            PlaySFX(Instance.deathSound);
+        }
         GameObject newPlayer = Instantiate(Instance.playerPrefab, Instance.spawnPoint.position, Quaternion.identity);
         newPlayer.name += deaths;
-        Instance.TrimPath();
-        PlaySFX(Instance.deathSound);
+        
+        
         GameController.lampOn = false;
     }
     void TrimPath() {
@@ -49,4 +54,10 @@ public class GameController : MonoBehaviour {
     public static void ExitGame() {
         Application.Quit();
     }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.F1))
+            ChangeScene("Level_1");
+    }
+
 }

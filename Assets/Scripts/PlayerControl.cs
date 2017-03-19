@@ -14,8 +14,9 @@ public class PlayerControl : MonoBehaviour {
     Rigidbody rBody;
     Light lamp;
     float lampTimer = 0;
-    float lampCooldown = 0;
-    bool canUseLamp = true;
+    float lampCooldownTimer = 0;
+    public float lampCooldown = 10;
+    public bool canUseLamp = true;
     public static Vector3 Position { get { return Instance.transform.position; } }
 
     void Start() {
@@ -40,18 +41,25 @@ public class PlayerControl : MonoBehaviour {
             anim.SetFloat("vSpeed", rBody.velocity.y);
 
             if (Input.GetButtonDown("Fire1") && canUseLamp) {
-                //if (lamp.enabled)
-                //    lamp.enabled = false;
-                //else {
-                    lamp.enabled = true;
-                    GameController.lampOn = true;
-                //}
+                lamp.enabled = true;
+                GameController.lampOn = true;
+                canUseLamp = false;
             }
 
-            if (lamp.enabled) {
+            if (lamp.enabled) {//Turn off lamp after 3 seconds
                 lampTimer += Time.deltaTime;
-                if (lampTimer > 3)
+                if (lampTimer > 3) {
                     lamp.enabled = false;
+                    lampTimer = 0;
+                }
+            }
+
+            if (!canUseLamp) {
+                lampCooldownTimer += Time.deltaTime;
+                if (lampCooldownTimer >= lampCooldown) {
+                    canUseLamp = true;
+                    lampCooldownTimer = 0;
+                }
             }
             //GameController.lampOn = lamp.enabled;
         }

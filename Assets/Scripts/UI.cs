@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class UI : MonoBehaviour {
 
-    public Cutscene startMenu;
+    public GameObject startMenu;
+    public GameObject camera;
     public GameObject endMenu;
     public void StartLevel() {
-        startMenu.Play();
+        startMenu.SetActive(false);
+        camera.SetActive(false);
+        GameController.Respawn();
     }
 
     public void ExitGame() {
