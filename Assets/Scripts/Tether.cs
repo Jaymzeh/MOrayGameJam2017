@@ -12,12 +12,9 @@ public class Tether : MonoBehaviour {
 
     void Start() {
         link = new List<GameObject>();
-
         if (GameObject.Find(transform.parent.name + "_Tether") == null)
             new GameObject(transform.parent.name + "_Tether");
         GameObject newLink = Instantiate(linkPrefab, transform.position - (transform.forward * 0.5f), Quaternion.identity);
-
-
         newLink.transform.parent = GameObject.Find(transform.parent.name + "_Tether").transform;
 
         link.Add(newLink);
