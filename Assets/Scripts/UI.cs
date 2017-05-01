@@ -1,12 +1,10 @@
-﻿using CinemaDirector;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UI : MonoBehaviour {
     public static UI Instance;
     public GameObject startMenu;
-    public GameObject camera;
     public GameObject warning;
 
     void Awake() {
@@ -15,7 +13,6 @@ public class UI : MonoBehaviour {
 
     public void StartLevel() {
         startMenu.SetActive(false);
-        camera.SetActive(false);
         GameController.Respawn();
     }
 
